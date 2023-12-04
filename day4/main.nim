@@ -13,8 +13,8 @@ proc Part1() =
         var dataSplit = stringData.split(" | ")
         var winningStr = dataSplit[0]
         var currentStr = dataSplit[1]
-        var winningNumbers = winningStr.split().filter(proc(s:string) : bool = s != "").map(proc(s: string): int = s.parseInt())
-        var currentNumbers = currentStr.split().filter(proc(s:string) : bool = s != "").map(proc(s: string): int = s.parseInt())
+        var winningNumbers = winningStr.splitWhitespace().map(proc(s: string): int = s.parseInt())
+        var currentNumbers = currentStr.splitWhitespace().map(proc(s: string): int = s.parseInt())
 
         var score = 0
         for currentNum in currentNumbers:
@@ -40,8 +40,8 @@ proc Part2() =
         var dataSplit = stringData.split(" | ")
         var winningStr = dataSplit[0]
         var currentStr = dataSplit[1]
-        var winningNumbers = winningStr.split().filter(proc(s:string) : bool = s != "").map(proc(s: string): int = s.parseInt())
-        var currentNumbers = currentStr.split().filter(proc(s:string) : bool = s != "").map(proc(s: string): int = s.parseInt())
+        var winningNumbers = winningStr.splitWhitespace().map(proc(s: string): int = s.parseInt())
+        var currentNumbers = currentStr.splitWhitespace().map(proc(s: string): int = s.parseInt())
 
         var nextId = i+1
 
