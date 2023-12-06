@@ -35,4 +35,39 @@ proc Part1() =
     
     echo product
 
+proc Part2() =
+    var times = @[62649190]
+    var distances = @[553101014731074]
+
+    var product = 1
+
+    for i in 0..times.high:
+        var time = times[i]
+        var distance = distances[i]
+
+        echo "Race ", i+1, ": Time(", time, ") | Distance(", distance, ")"
+
+        var minHold = 0
+        var maxHold = 0
+        for holdTime in 0..time:
+            var travelDistance = CalcDistance(holdTime, time)
+            if(travelDistance > distance):
+                echo "Found: ", holdTime, " | ", travelDistance
+                minHold = holdTime
+                break
+        
+        for holdTime in countdown(time, 0):
+            var travelDistance = CalcDistance(holdTime, time)
+            if(travelDistance > distance):
+                echo "Found: ", holdTime, " | ", travelDistance
+                maxHold = holdTime
+                break
+
+        var winMargin = maxHold - minHold + 1
+        echo winMargin
+        product *= winMargin
+    
+    echo product
+
 Part1()
+Part2()
